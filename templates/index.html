@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Transcription</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5 text-center">
+        <h1 class="text-center mb-4">Video-2-Text</h1>
+        
+        <div class="mb-4">
+            <h4 class="mb-0">Upload Your File</h4>
+        </div>
+        
+        <form method="POST" enctype="multipart/form-data" class="text-center mb-4">
+            <div class="form-group">
+                <input type="file" class="form-control-file mx-auto" id="file" name="file" required style="display: inline-block;">
+            </div>
+            <button type="submit" class="btn btn-primary">Transcribe</button>
+        </form>
+
+        {% if transcription %}
+        <div class="transcription-box">
+            <h3>Transcription:</h3>
+            <pre>{{ transcription }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
